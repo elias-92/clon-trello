@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './app.css';
+import styled from '@emotion/styled';
+import Lists from './components/Lists';
+import backgroundImg from './img/imgFondo.jpg';
+import AddCardOrList from './components/AddCardOrList';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Root>
+			<ListsContainer>
+				<Lists />
+				<Lists />
+				<Lists />
+				<div>
+					<AddCardOrList type="list" />
+				</div>
+			</ListsContainer>
+		</Root>
+	);
 }
-
+const Root = styled.div`
+	height: 100vh;
+	overflow-y: auto;
+	margin: 0 1rem 0 0;
+	background-image: url(${backgroundImg});
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+`;
+const ListsContainer = styled.div`
+	display: flex;
+`;
 export default App;
